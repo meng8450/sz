@@ -14,34 +14,34 @@
 
 <script>
 export default {
-    props:{
-        // index:{
-        //     type:Number,
-        //     observer:function(newVal,oldVal,changedPath)
-        //     {
-        //        if(newVal<10){
-        //            this.setData({
-        //                _index:'0'+newVal
-        //            })
-        //        } 
-        //     }
-        // }
-    },
-    data(){
-        return{
+  props: {
+    // index:{
+    //     type:Number,
+    //     observer:function(newVal,oldVal,changedPath)
+    //     {
+    //        if(newVal<10){
+    //            this.setData({
+    //                _index:'0'+newVal
+    //            })
+    //        }
+    //     }
+    // }
+  },
+  data () {
+    return {
     //         months:[
     //     '一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月',
     //     '十二月'
     //   ],
     //         year:Number,
-    //         month:String, 
+    //         month:String,
     //         _index:String
-               year:2018,
-               month:'六月',
-               _index:15
-        }
-    },
-    methods:{
+      year: 2018,
+      month: '六月',
+      _index: 15
+    }
+  },
+  methods: {
     //     ready:function(){
     //         let date = new Date()
     //         let month = date.getMonth()
@@ -51,7 +51,7 @@ export default {
     //             year:year
     // })
     // }
-    }
+  }
 }
 </script>
 

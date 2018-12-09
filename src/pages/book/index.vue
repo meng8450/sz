@@ -56,12 +56,14 @@ export default{
 }
 .hottag .taggroup{
   height:50px;
+  margin-top: 5px;
   background-color: #fff;
 }
 .hottag .tag{
   margin-top:15px;
   margin-left: 20px;
-  background-color:#FFFFCC;
+  outline: none;
+  background-color:#99ccff;
 }
 .hottag p{
   margin-left: 15px;
@@ -69,7 +71,7 @@ export default{
   font-family: Microsoft yahei;
 }
 .books{
-  margin-top:20px;
+  margin-top:10px;
 }
 .books p{
   margin-left: 15px;

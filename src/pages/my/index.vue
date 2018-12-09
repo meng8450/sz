@@ -37,7 +37,7 @@ export default {
 <style>
 .my {
   width: 100%;
-  height: 280px;
+  height: 260px;
   background-image: #99CCFF;
 }
 .my .setup{
@@ -73,6 +73,9 @@ export default {
   font-size: 16px;
   color: #333333;
   margin-top: 8px;
+}
+.excerpt{
+  margin-top:20px;
 }
 .excerpt .brush{
   float: left;
