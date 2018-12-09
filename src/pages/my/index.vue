@@ -3,10 +3,11 @@
     <div class="head">
       <i-icon i-class="setup" type="setup" size="28" color="#ffffff" />
       <i-icon i-class="message" type="message" size="28" color="#ffffff" />
-      <div class="user">
+      <div class="userinfo">
         <!-- <image :src="avatar"></image> -->
-        <i-avatar :src="avatar" size="large"></i-avatar>
-        <span>{{username}}</span>
+        <i-avatar :src="user.avatarUrl" size="large"></i-avatar>
+        <button v-if="!user" open-type="getUserInfo" lang="zh_CN" @getuserinfo="doLogin">点击登录</button>
+        <span>{{user.nickName}}</span>
       </div>
       <div class="excerpt">
         <!-- <button class="write"><image :src="write" />制作札记</button>
@@ -25,12 +26,41 @@
 </template>
 
 <script>
+import qcloud from 'wafer2-client-sdk'
+import config from '@/config.js'
+import {showSuccess} from '@/until.js'
 export default {
   data: {
-    avatar: require('../../../static/images/user.jpeg'),
-    username: '懵懵'
+    avatarUrl: require('../../../static/images/unlogin.png'),
+    user: ''
   },
-  methods: {}
+  methods: {
+    doLogin: function (e) {
+      qcloud.setLoginUrl(config.loginUrl)
+      var _this = this // 在success回调里面 this.user指向的已经不是data里的user了
+      qcloud.login({
+        success: function (userInfo) {
+          console.log('登录成功', userInfo)
+
+          showSuccess('登陆成功') // 显示登录成功提示图标
+          wx.setStorageSync('userinfo', userInfo)
+          _this.user = wx.getStorageSync('userinfo')
+          _this.avatarUrl = _this.user.avatarUrl
+        },
+        fail: function (err) {
+          console.log('登录失败', err)
+        }
+      })
+    }
+  },
+  created () {
+    this.user = wx.getStorageSync('userinfo')
+    if (this.user) {
+      this.avatarUrl = this.user.avatarUrl
+      this.nickName = this.user.nickName
+    }
+    console.log(321, this.user)
+  }
 }
 </script>
 
@@ -58,7 +88,7 @@ export default {
   background-color: #99CCCC;
   height: 250px;
 }
-.user{
+.userinfo{
   display: flex;
   flex-direction: column;
   align-items: center;

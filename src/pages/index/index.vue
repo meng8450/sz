@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <i-card i-class="mycard" title="标题" extra="关注" thumb="../../../static/images/user.jpeg">
+    <i-card i-class="mycard" title="标题" extra="关注" :thumb="user">
       <view i-class="mycontent" slot="content">
         <image :src="picture1"/>
         札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容札记内容
@@ -22,6 +22,7 @@
 export default {
   data () {
     return {
+      user: require('../../../static/images/user.jpeg'),
       picture1: require('../../../static/images/first.jpeg')
     }
   }
