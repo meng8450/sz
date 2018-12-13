@@ -31,6 +31,8 @@ router.post('/tunnel', controllers.tunnel.post)
 router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
+router.get('/demo', controllers.demo)
 
-router.get('/demo',controllers.demo)
+// 图书列表
+router.get('/booklist', controllers.booklist)
 module.exports = router

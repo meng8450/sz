@@ -16,6 +16,7 @@
     </div>
     <div class="books">
       <p>精选书籍</p>
+      <BookList :key='book.id' v-for='book in books' :book='book'></BookList>
       <!-- <ul class="booklist">
         <li v-for="(book,index)in bookImg" :key="index">
           <a><img :src="book.src"></a>
@@ -27,55 +28,61 @@
 
 <script>
 import carousel from '@/components/carousel'
+import BookList from '@/components/BookList'
+import {get} from '@/until'
 export default{
-  components: {carousel},
+  components: {carousel, BookList},
   data () {
     return {
       value: '',
-      bookImg: [
-        {src: '../../../static/images/first.jpg'},
-        {src: '../../../static/images/second.jpg'},
-        {src: '../../../static/images/third.jpg'},
-        {src: '../../../static/images/four.jpg'}
-      ]
+      books: []
     }
+  },
+  methods: {
+    async getList () {
+      const books = await get('/weapp/booklist')
+      this.books = books.data.list
+    }
+  },
+  mounted () {
+    this.getList()
   }
 }
 </script>
 
 <style>
 .book .vary{
-  width: 350px;
-  margin-top:20px;
+  width: 350rpx;
+  margin-top:20rpx;
   margin:0 auto;
-  font-size: 16px;
+  font-size: 16rpx;
   text-align: center;
 }
 .hottag{
-  margin-top: 20px;
+  margin-top: 20rpx;
 }
 .hottag .taggroup{
-  height:50px;
-  margin-top: 5px;
+  height:80rpx;
+  margin-top: 5rpx;
   background-color: #fff;
 }
 .hottag .tag{
-  margin-top:15px;
-  margin-left: 20px;
+  margin-top:20rpx;
+  margin-left: 25rpx;
   outline: none;
   background-color:#99ccff;
 }
 .hottag p{
-  margin-left: 15px;
-  font-size: 14px;
+  margin-left: 20rpx;
+  font-size: 28rpx;
   font-family: Microsoft yahei;
 }
 .books{
-  margin-top:10px;
+  margin-top:10rpx;
 }
 .books p{
-  margin-left: 15px;
-  font-size: 14px;
+  margin-left: 20rpx;
+  font-size: 28rpx;
   font-family: Microsoft yahei;
 }
 </style>

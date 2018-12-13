@@ -34,15 +34,15 @@ export default {
   margin-top: 20px;
 }
 .mycontent image{
-  width: 350px;
+  width: 350rpx;
   margin: 0 auto;
 }
 .myfooter .icon{
-  margin-left: 20px;
+  margin-left: 20rpx;
 }
 .myfooter .date{
   float: right;
-  margin-left: 100px;
+  margin-left: 100rpx;
 }
 </style>
 

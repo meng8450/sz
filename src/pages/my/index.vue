@@ -12,16 +12,14 @@
       <div class="excerpt">
         <!-- <button class="write"><image :src="write" />制作札记</button>
         <button class="note"><image :src="note" />我的札记</button> -->
-        <i-button i-class="brush" shape="circle" :click="handleClick"><i-icon type="brush" size="28" color="#80848f" />制作札记</i-button>
+        <i-button i-class="brush" shape="circle" :click="writeClick"><i-icon type="brush" size="28" color="#80848f" />制作札记</i-button>
         <i-button i-class="activity" shape="circle" :click="handleClick"><i-icon type="activity" size="28" color="#80848f" />我的札记</i-button>
       </div>
     </div>
     <i-cell-group>
     <i-cell title="我的喜欢" is-link url="#"></i-cell>
     <i-cell title="我的关注" is-link url="#"></i-cell>
-    </i-cell>
     </i-cell-group>
-    </div>
   </div>
 </template>
 
@@ -67,32 +65,37 @@ export default {
 <style>
 .my {
   width: 100%;
-  height: 260px;
-  background-image: #99CCFF;
+  /* height: 350rpx;
+  background-image: #99CCFF; */
 }
 .my .setup{
-  width: 25px;
-  height: 25px;
+  width: 25rpx;
+  height: 25rpx;
   float: left;
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
 }
 .my .message{
-  width: 25px;
-  height: 25px;
+  width: 25rpx;
+  height: 25rpx;
   float: right;
-  margin-right: 20px;
-  margin-top: 10px;
+  margin-right: 50rpx;
+  margin-top: 20rpx;
 }
 .head{
   background-color: #99CCCC;
-  height: 250px;
+  height: 450rpx;
 }
 .userinfo{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 120rpx;
+}
+.userinfo button{
+  width:200rpx;
+  height:50rpx;
+  font-size:24rpx;
 }
 /* .user image{
   width: 70px;
@@ -102,14 +105,14 @@ export default {
 .user span{
   font-size: 16px;
   color: #333333;
-  margin-top: 8px;
+  margin-top: 10rpx;
 }
 .excerpt{
-  margin-top:20px;
+  margin-top:20rpx;
 }
 .excerpt .brush{
   float: left;
-  margin-left: 70px;
+  margin-left: 130rpx;
 }
 .excerpt .activity{
   float: left;

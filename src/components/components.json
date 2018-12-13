@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-        "i-icon": "../../../static/iView/icon/index"
+        "i-icon": "../../static/iView/icon/index",
+        "i-input": "../../static/iView/input/index"
     }
 }
